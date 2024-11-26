@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 #define ll long long
 
@@ -8,9 +8,7 @@ void solve(ll n, ll m, ll a) {
     ceilN = (n + a - 1) / a;
     ceilM = (m + a - 1) / a;
 
-    sol = ceilN * ceilM;
-
-    cout << sol << endl;
+    cout << ceilN * ceilM << '\n';
 }
 
 int main() {
