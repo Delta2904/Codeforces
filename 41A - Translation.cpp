@@ -2,15 +2,9 @@
 using namespace std;
 
 void solve(string s, string t) {
-    string reversed(s);
-    int j = 0;
-    
-    for (int i = s.size() - 1; i >= 0; i--) {
-        reversed[j] = s[i];
-        j++;
-    }
+    reverse(s.begin(), s.end());
 
-    if (reversed == t) {
+    if (s == t) {
         cout << "YES" << endl;
     } else {
         cout << "NO" << endl;
