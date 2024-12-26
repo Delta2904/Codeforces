@@ -2,21 +2,14 @@
 using namespace std;
 
 void solve(int n, vector<int> a) {
-    int m = 1;
     for (int i = 0; i < n - 1; i++) {
-        if (abs(a[i] - a[i + 1]) == 5 || abs(a[i] - a[i + 1]) == 7) {
-            continue;
-        } else {
-            m = 0;
-            break;
-        }
+        if (abs(a[i] - a[i + 1]) != 5 && abs(a[i] - a[i + 1]) != 7) {
+            cout << "NO" << endl;
+            return;
+        } 
     }
 
-    if (m == 1) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
+    cout << "YES" << endl;
 }
 
 int main() {
