@@ -8,7 +8,7 @@ void solve(ll n, ll m, ll a) {
     ceilN = (n + a - 1) / a;
     ceilM = (m + a - 1) / a;
 
-    cout << ceilN * ceilM << '\n';
+    cout << ceilN * ceilM << endl;
 }
 
 int main() {
