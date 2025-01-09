@@ -2,25 +2,34 @@
 #define ll long long
 using namespace std;
 
-bool isTprime(ll x) {
-    if (x <= 1) return false;
+vector<ll> tPrimes;
 
-    ll root = sqrt(x);
-    if (root * root != x) return false;
+void generateTprimes() {
+    vector<bool> criba(1e6 + 1, true);
+    criba[0] = criba[1] = false;
 
-    for (ll i = 2; i * i <= root; i++) {
-        if (root % i == 0) return false;
+    for (ll i = 2; i * i <= 1e6; i++) {
+        if (criba[i]) {
+            for (ll j = i * i; j <= 1e6; j += i) {
+                criba[j] = false;
+            }
+        }
     }
 
-    return true; 
-
+    for (ll i = 2; i <= 1e6; i++) {
+        if (criba[i]) {
+            ll tPrime = i * i;
+            if (tPrime > 1e12) break;
+            tPrimes.push_back(tPrime);
+        }
+    }
 }
 
 void solve(int n) {
     vector<ll> x(n);
     for (int i = 0; i < n; i++) {
         cin >> x[i];
-        if (isTprime(x[i])) cout << "YES" << endl;
+        if (binary_search(tPrimes.begin(), tPrimes.end(), x[i])) cout << "YES" << endl;
         else cout << "NO" << endl;
     }
 }
@@ -32,6 +41,7 @@ int main() {
     int n;
     cin >> n;
 
+    generateTprimes();
     solve(n);
 
     return 0;
