@@ -16,22 +16,14 @@
 using namespace std;
 
 void solve(int n, int m) {
-    bool colored = false;
-    vector<vector<char>> P(n, vector<char>(m));
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            cin >> P[i][j];
-            if (P[i][j] == 'C' || P[i][j] == 'M' || P[i][j] == 'Y') {
-                colored = true;
-            }
+    for (int i = 0; i < n * m; ++i) {
+        char c; cin >> c;
+        if (c == 'C' || c == 'M' || c == 'Y') {
+            cout << "#Color\n";
+            return;
         }
     }
-
-    if (colored) {
-        cout << "#Color\n";
-    } else {
-        cout << "#Black&White\n";
-    }
+    cout << "#Black&White\n";
 }
 
 int main() {
