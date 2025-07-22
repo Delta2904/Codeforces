@@ -5,7 +5,7 @@
 //
 // ThemeCP Level: ThemeCP Level 4 - Mixed
 // Tags         : greedy/implementation/*900
-// Problem      : 1675B - Make It Increasing (https://codeforces.com/problemset/problem/2031/B)
+// Problem      : 1675B - Make It Increasing (https://codeforces.com/problemset/problem/1675/B)
 // Date         : 19-07-2025
 // 
 // "We are stardust trying to understand the cosmos,
