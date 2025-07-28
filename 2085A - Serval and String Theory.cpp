@@ -3,10 +3,10 @@
 //  ( o.o )     Github: github.com/Delta2904
 //   > ^ <      Codeforces: codeforces.com/profile/MangoFI
 //
-// ThemeCP Level: ThemeCP Level 4 - Mixed
-// Tags         : greedy/implementation/*900
-// Problem      : 1675B - Make It Increasing (https://codeforces.com/problemset/problem/1675/B)
-// Date         : 19-07-2025
+// ThemeCP Level: ThemeCP Level 5 - Mixed
+// Tags         : constructive algorithms/implementation/*900
+// Problem      : 2085A - Serval and String Theory (https://codeforces.com/contest/2085/problem/A)
+// Date         : 27-07-2025
 // 
 // "We are stardust trying to understand the cosmos,
 //  with the patience and agility of a cat in the night."
@@ -14,24 +14,21 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 void solve() {
-    int n; cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    int i = 0, sol = 0;
+    int n, k; cin >> n >> k;
+    string s; cin >> s;
 
-    for(int i = n - 2; i >= 0; i--){
-        while(a[i] >= a[i + 1] && a[i] > 0){
-            a[i] /= 2;
-            sol++;
-        }
-        if(a[i] == a[i+1]){
-            cout << -1 << '\n';
-            return;
-        }
+    string reversed_s = s;
+    reverse(reversed_s.begin(), reversed_s.end());
+
+    if (s < reversed_s || (k >= 1 && *min_element(s.begin(), s.end()) != *max_element(s.begin(), s.end()))) {
+        cout << "Yes\n";
+    } else {
+        cout << "No\n";
     }
-    cout << sol << '\n';
+
 }
 
 int main() {
