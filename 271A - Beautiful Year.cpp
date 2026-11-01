@@ -1,17 +1,33 @@
+// Codeforces | ThemeCP Training
+//   /\_/\      Author: Emiliano Calderón (MangoFI)
+//  ( o.o )     Github: github.com/Delta2904
+//   > ^ <      Codeforces: codeforces.com/profile/MangoFI
+//
+// ThemeCP Level: Training
+// Tags         : brute force/implementation/strings/*900
+// Problem      : 271A - Beautiful Year (https://codeforces.com/problemset/problem/271/A)
+// Date         : 01-05-2026
+// 
+// "We are stardust trying to understand the cosmos,
+//  with the patience and agility of a cat in the night."
+//     — Inspired by Carl Sagan & feline wisdom
+
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(int y, string year) {
+void solve(int y) {
     for (int i = y + 1; i <= INT_MAX; i++) {
-        set<char> a;
-        for (int j = 0; j < 4; j++) {
-            a.insert(year[j]);
-        }
-        if (a.size() == 4) {
-            cout << i << endl;
+        int a = i / 1000;
+        int b = (i / 100) % 10;
+        int c = (i / 10) % 10;
+        int d = i % 10;
+
+        if (a == b || a == c || a == d || b == c || b == d || c == d) {
+            continue;
+        } else {
+            cout << i << '\n';
             return;
         }
-        year = to_string(i + 1);
     }
 }
 
@@ -22,9 +38,8 @@ int main() {
 
     int y;
     cin >> y;
-    string year = to_string(y + 1);
 
-    solve(y, year);
+    solve(y);
 
     return 0;
 }
